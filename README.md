@@ -19,6 +19,8 @@
 
 6.通过注册登陆的用户都是普通用户，没有管理员权限。（通过默认管理员用户登陆，才可以修改其他用户的权限）
 
+https://github.com/ydj-baitang/news_system/blob/main/Uploads/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-08-21%20222440.png
+
 如果想在Ubuntu部署这个项目也是可以的（此项目也可以在liunx、mac系统下部署）
 
 ##需要安装apache2、php、mysql
