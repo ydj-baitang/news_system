@@ -17,9 +17,9 @@
 
 ****重点****
 
-6.通过注册登陆的用户都是普通用户，没有管理员权限。（通过默认管理员用户登陆，才可以修改其他用户的权限）
+6.通过注册登陆的用户都是普通用户，没有管理员权限。（通过默认管理员用户登陆，才可以修改其他用户的权限.可以添加用户，修改用户密码，添加新闻。普通用户只能看到发布的新闻内容）
 
-https://github.com/ydj-baitang/news_system/blob/main/Uploads/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-08-21%20222440.png
+![Image text](https://github.com/ydj-baitang/news_system/blob/main/Uploads/1.png)
 
 如果想在Ubuntu部署这个项目也是可以的（此项目也可以在liunx、mac系统下部署）
 
@@ -55,20 +55,20 @@ sudo mv news_system /var/www/html/news
 
 cd /var/www/html/news/
 
-保存退出后运行脚本create_newsweb.sh，既可以实现数据库表的创建，和所需数据库的创建。
+7.保存退出后运行脚本create_newsweb.sh，既可以实现数据库表的创建，和所需数据库的创建。
 
 suod chmod +x create_newsweb.sh       
 
 ./create_newsweb.sh
 
-7.需要修改/App/Conf/Config.php文件中的数据库连接信息
+8.需要修改/App/Conf/Config.php文件中的数据库连接信息
 
-6.浏览器访问http://localhost/email即可看到登陆界面
+9.浏览器访问http://localhost/email即可看到登陆界面
 
 默认管理员用户名：admin  密码：password
 
 ****重点****
 
-通过注册登陆的用户都是普通用户，没有管理员权限。（通过默认管理员用户登陆，才可以修改其他用户的权限）
+10.通过注册登陆的用户都是普通用户，没有管理员权限。（通过默认管理员用户登陆，才可以修改其他用户的权限.可以添加用户，修改用户密码，添加新闻。普通用户只能看到发布的新闻内容）
 
 到此，部署完成。
