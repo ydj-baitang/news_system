@@ -2,7 +2,7 @@
 header("Content-Type:text/html;charset=utf8");
 
 // 连接到 MySQL 数据库服务器
-$conn = mysqli_connect('127.0.0.1', 'root', 'ydj12345', '', '3306');
+$conn = mysqli_connect('127.0.0.1', 'root', 'password', '', '3306');    // 注意修改数据库连接参数                      
 
 // 检查连接是否成功
 if (!$conn) {
@@ -51,7 +51,7 @@ if (mysqli_query($conn, $sql)) {
 
 // 插入一条数据到 users 表
 $uname = 'admin';
-$upass = md5('123456');  // 将密码进行 MD5 加密
+$upass = md5('password');  // 将密码进行 MD5 加密
 $is_admin = 1;
 
 $sql = "INSERT INTO users (uname, upass, is_admin) VALUES ('$uname', '$upass', $is_admin);";
