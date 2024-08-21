@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script type="text/javascript">
+        function yzmupdate(){
+            document.yzm.src="./App/Admin/View/Login/yzm.php?" + Math.random();
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: #fff;
+            width: 358px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .input-item {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            border: none;
+            border-bottom: 2px solid #ddd;
+            padding: 10px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .input-item:focus {
+            border-bottom-color: #a6c1ee;
+        }
+        .input-item::placeholder {
+            color: #aaa;
+        }
+        .btn {
+            text-align: center;
+            padding: 12px;
+            width: 100%;
+            margin-top: 20px;
+            background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-position 0.3s;
+            background-size: 200% 100%;
+            background-position: left;
+        }
+        .btn:hover {
+            background-position: right;
+        }
+        .msg {
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+        }
+        .msg a {
+            color: #a6c1ee;
+            text-decoration: none;
+        }
+        .msg a:hover {
+            text-decoration: underline;
+        }
+        .td2 {
+            color: #bb1a1a;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .td2:hover {
+            text-decoration: underline;
+        }
+        .yzm-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .yzm-input {
+            flex: 1;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .yzm-image {
+            height: 25px;
+            cursor: pointer;
+        }
+        .yzm-container {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">Login</div>
+    <form method="post" action="?p=Admin&c=Login&a=check">
+        <div class="form-wrapper">
+            <input type="text" name="uname" placeholder="请输入用户名" class="input-item">
+            <input type="password" name="upass" placeholder="请输入密码" class="input-item">
+            <div class="yzm-container">
+                <input type="text" name="useryzm" placeholder="请输入验证码" class="input-item yzm-input">
+                <img src="./App/Admin/View/Login/yzm.php" name="yzm" class="yzm-image" onclick="yzmupdate()">
+            </div>
+            <p>请输入图片中的字符 <span onclick="yzmupdate()" class="td2">看不清楚?换一张</span></p>
+            <input type="submit" value="登录" class="btn">
+        </div>
+        <div class="msg">
+            Don't have account? <a href="./App/Admin/View/Login/zhuce.php">Sign up</a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>用户信息管理中心 - 修改用户</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 10px;
+        }
+        .header a {
+            margin-right: 10px;
+        }
+        table {
+            width: 400px;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        input[type="text"], input[type="password"], input[type="radio"] {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>用户信息管理中心——修改用户</h2>
+        <a href="javascript:history.go(-1)">返回</a>
+    </div>
+    <form method="post" action="?p=Admin&c=User&a=update">
+        <table>
+            <tr>
+                <td>用户名：</td>
+                <td><input type="text" name="uname" value="<?php echo htmlspecialchars($arr['uname']); ?>"></td>
+            </tr>
+            <tr>
+                <td>权限：</td>
+                <td>
+                    <input type="radio" name="is_admin" value="1"<?php if ($arr['is_admin'] == 1) echo ' checked'; ?>>系统管理员
+                    <input type="radio" name="is_admin" value="0"<?php if ($arr['is_admin'] == 0) echo ' checked'; ?>>文章发布员
+                </td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password" name="upass" value="<?php echo htmlspecialchars($arr['upass']); ?>"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="hidden" name="uid" value="<?php echo htmlspecialchars($arr['uid']); ?>">
+                    <input type="hidden" name="old_upass" value="<?php echo htmlspecialchars($arr['upass']); ?>">
+                    <input type="submit" value="提交">
+                    <input type="reset" value="重置">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

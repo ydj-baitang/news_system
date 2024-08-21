@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>新闻信息管理中心</title>
+	<style>
+		textarea{
+			width: 95%;
+			height: 95%;
+		}
+	</style>
+</head>
+<body>
+
+<div style="text-align:center;padding-bottom: 10px;">
+	<h2>新闻信息管理中心——修改新闻</h2>
+	<a href="javascript:history.go(-1)">返回</a>
+</div>
+
+<form method="post" action="?p=Admin&c=News&a=update"><!-- 表单，使用POST方法提交数据到修改操作的控制器方法 -->
+<table width="400" bordercolor="#ccc" border="1" rules="all" align="center" cellpadding="5">
+	<tr>
+		<td width="80" align="right">新闻标题：</td>
+		<!-- 显示新闻标题输入框，并填充已有的新闻标题数据 -->
+		<td><input type="text" name="title" value="<?php echo $arr['title'];?>"></td>
+	</tr>
+	<tr>
+		<td width="80" align="right">新闻内容：</td>
+		<!-- 显示新闻文本输入框，并填充已有的新闻文本数据 -->
+		<td height="100"><textarea height="100" name="content"><?php echo $arr['content'];?></textarea></td>
+	</tr>
+	<tr>
+		<td width="80" align="right">发布者：</td>
+		<!-- 显示新闻作者输入框，并填充已有的新闻作者数据 -->
+		<td><input type="text" name="editor" value="<?php echo $arr['editor'];?>"></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>
+			<input type="hidden" name="nid" value="<?php echo $arr['nid'];?>">
+			<input type="submit" value="提交">
+			<input type="reset" value="重置">
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

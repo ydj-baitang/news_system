@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>新闻信息管理中心</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h2 {
+            color: #333;
+        }
+        .news-details {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .meta-info {
+            color: #777;
+            font-size: 14px;
+        }
+        .content {
+            margin-top: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="news-details">
+        <h2><?php echo htmlspecialchars($arr['title']); ?></h2>
+        <p class="meta-info">
+            发布时间：<?php echo htmlspecialchars($arr['release_time']); ?> | 
+            发布作者：<?php echo htmlspecialchars($arr['editor']); ?>
+        </p>
+        <hr>
+        <div class="content">
+            <?php echo nl2br(htmlspecialchars($arr['content'])); ?>
+        </div>
+    </div>
+    <a href="javascript:history.go(-1)" class="back-link">返回</a>
+</body>
+</html>

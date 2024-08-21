@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>新闻管理中心</title>
+    <script type="text/javascript">
+        // 确认删除
+        function confirmDel(id) {
+            if (window.confirm("是否确认删除?")) {
+                location.href = "?p=Admin&c=News&a=delete&id=" + id;
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 10px;
+        }
+        .header a {
+            margin-right: 10px;
+        }
+        table {
+            width: 900px;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        .logout {
+            text-align: right;
+        }
+        .logout a {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logout">
+        <a href="?p=Admin&c=Login&a=logout">退出</a>
+    </div>
+    <div class="header">
+        <h2>新闻信息管理中心</h2>
+        <a href="?p=Admin&c=News&a=add">添加新闻</a>
+        <a href="?p=Admin&c=User">用户管理界面</a> <!-- 新增的链接 -->
+        <p>共有 <span style="color:red;"><?php echo htmlspecialchars($count); ?></span> 条新闻</p>
+    </div>
+    <table>
+        <tr>
+            <th>编号</th>
+            <th>新闻标题</th>
+            <th>发布时间</th>
+            <th>发布者</th>
+            <th>操作</th>
+        </tr>
+        <?php if (isset($arrs) && (is_array($arrs) || $arrs instanceof Traversable)): ?>
+            <?php foreach ($arrs as $arr): ?>
+            <tr>
+                <td><?php echo htmlspecialchars($arr["nid"]); ?></td>
+                <td><?php echo htmlspecialchars($arr["title"]); ?></td>
+                <td><?php echo htmlspecialchars($arr["release_time"]); ?></td>
+                <td><?php echo htmlspecialchars($arr["editor"]); ?></td>
+                <td>
+                    <a href="?p=Admin&c=News&a=edit&id=<?php echo urlencode($arr['nid']); ?>">修改</a> |
+                    <a href="javascript:void(0)" onclick="confirmDel(<?php echo $arr['nid']; ?>)">删除</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <tr>
+                <td colspan="5">没有新闻数据</td>
+            </tr>
+        <?php endif; ?>
+    </table>
+</body>
+</html>

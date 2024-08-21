@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>新闻管理中心</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .header, .news-table {
+            margin: 0 auto;
+            max-width: 900px;
+            text-align: center;
+        }
+        .header {
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        .logout {
+            text-align: right;
+        }
+        .logout a {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logout">
+        <a href="?p=Admin&c=Login&a=logout">退出</a>
+    </div>
+    <div class="header">
+        <h2>新闻信息管理中心</h2>
+        <p>共有 <span style="color:red;"><?php echo htmlspecialchars($count); ?></span> 条新闻</p>
+    </div>
+    <table class="news-table">
+        <tr>
+            <th>编号</th>
+            <th>新闻标题</th>
+            <th>发布时间</th>
+            <th>发布者</th>
+            <th>操作</th>
+        </tr>
+        <?php foreach ($arrs as $arr): ?>
+        <tr>
+            <td><?php echo htmlspecialchars($arr["nid"]); ?></td>
+            <td><?php echo htmlspecialchars($arr["title"]); ?></td>
+            <td><?php echo htmlspecialchars($arr["release_time"]); ?></td>
+            <td><?php echo htmlspecialchars($arr["editor"]); ?></td>
+            <td>
+                <a href="?p=Home&c=News&a=detail&id=<?php echo urlencode($arr['nid']); ?>">详情</a>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>用户信息管理中心 - 添加用户</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 10px;
+        }
+        .header a {
+            margin-right: 10px;
+        }
+        table {
+            width: 400px;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>用户信息管理中心——添加用户</h2>
+        <a href="javascript:history.go(-1)">返回</a>
+    </div>
+    <form method="post" action="?p=Admin&c=User&a=insert">
+        <table>
+            <tr>
+                <td>用户名：</td>
+                <td><input type="text" name="uname"></td>
+            </tr>
+            <tr>
+                <td>权限：</td>
+                <td>
+                    <input type="radio" name="is_admin" value="1">系统管理员
+                    <input type="radio" name="is_admin" value="0" checked>文章发布员
+                </td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password" name="upass"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="提交">
+                    <input type="reset" value="重置">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
